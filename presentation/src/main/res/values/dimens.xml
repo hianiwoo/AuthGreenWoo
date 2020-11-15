@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="smallText">12sp</dimen>
+    <dimen name="smallTextDesc">14sp</dimen>
+    <dimen name="normalText">17sp</dimen>
+    <dimen name="normalSemiText">20sp</dimen>
+    <dimen name="largeText">25sp</dimen>
+
+    <dimen name="spaceLess">5dp</dimen>
+    <dimen name="spaceSmall">10dp</dimen>
+    <dimen name="spaceSmallSemi">15dp</dimen>
+    <dimen name="spaceNormal">20dp</dimen>
+    <dimen name="spaceNormalSemi">25dp</dimen>
+    <dimen name="spaceLarge">50dp</dimen>
+
+</resources>

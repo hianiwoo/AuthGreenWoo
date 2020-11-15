@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.greenwoo.presentation.host.home.HomeViewData" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_dark">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:padding="@dimen/spaceLess"
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceLarge"
+                android:indeterminateTint="@color/blue"
+                android:visibility="@{model.loading}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvModule"
+                style="@style/TextViewTitleLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceSmallSemi"
+                android:layout_marginTop="@dimen/spaceSmallSemi"
+                android:text="@string/modules"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:visibility="@{model.visibility}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSeeAllModule"
+                style="@style/TextViewDescBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:drawablePadding="@dimen/spaceLess"
+                android:onClick="@{ v -> model.onListModule.invoke()}"
+                android:text="@string/see_all"
+                android:visibility="@{model.visibility}"
+                app:drawableEndCompat="@drawable/ic_right_arrow"
+                app:drawableTint="@color/blue"
+                app:layout_constraintBottom_toBottomOf="@id/tvModule"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvModule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceLess"
+                android:visibility="@{model.visibility}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/tvModule" />
+
+            <TextView
+                android:id="@+id/tvFolder"
+                style="@style/TextViewTitleLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:layout_marginStart="@dimen/spaceSmallSemi"
+                android:layout_marginTop="@dimen/spaceSmallSemi"
+                android:text="@string/folders"
+                android:visibility="@{model.visibility}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvModule" />
+
+            <TextView
+                android:id="@+id/tvSeeAllFolder"
+                style="@style/TextViewDescBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/spaceLess"
+                android:onClick="@{ v -> model.onListFolder.invoke()}"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:text="@string/see_all"
+                android:visibility="@{model.visibility}"
+                app:drawableEndCompat="@drawable/ic_right_arrow"
+                app:drawableTint="@color/blue"
+                app:layout_constraintBottom_toBottomOf="@id/tvFolder"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceLess"
+                android:visibility="@{model.visibility}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/tvFolder" />
+
+            <TextView
+                android:id="@+id/tvCourse"
+                style="@style/TextViewTitleLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceSmallSemi"
+                android:layout_marginTop="@dimen/spaceSmallSemi"
+                android:text="@string/courses"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:visibility="@{model.visibility}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvFolder" />
+
+            <TextView
+                android:id="@+id/tvSeeAllCourse"
+                style="@style/TextViewDescBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:onClick="@{ v -> model.onListCourse.invoke()}"
+                android:text="@string/see_all"
+                android:visibility="@{model.visibility}"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                app:drawableEndCompat="@drawable/ic_right_arrow"
+                app:drawableTint="@color/blue"
+                app:layout_constraintBottom_toBottomOf="@id/tvCourse"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCourse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:visibility="@{model.visibility}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/tvCourse" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

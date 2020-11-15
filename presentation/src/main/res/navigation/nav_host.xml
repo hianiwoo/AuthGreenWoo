@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/menuHome">
+
+    <fragment
+        android:id="@+id/menuHome"
+        android:name="com.greenwoo.presentation.host.home.HomeFragment"
+        tools:layout="@layout/host_home" />
+
+    <action
+        android:id="@+id/global_action_to_menu_home"
+        app:destination="@id/menuHome"
+        app:popUpTo="@id/nav_main"
+        app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/menuSearch"
+        android:name="com.greenwoo.presentation.host.search.SearchFragment"
+        tools:layout="@layout/host_search" />
+
+    <fragment
+        android:id="@+id/menuAdd"
+        android:name="com.greenwoo.presentation.host.add.AddFragment"
+        tools:layout="@layout/host_add" />
+
+    <fragment
+        android:id="@+id/menuProfile"
+        android:name="com.greenwoo.presentation.host.profile.ProfileFragment"
+        tools:layout="@layout/host_profile" />
+
+    <action
+        android:id="@+id/global_action_to_menu_profile"
+        app:destination="@id/menuProfile"
+        app:popUpTo="@id/nav_main"
+        app:popUpToInclusive="true" />
+
+</navigation>

@@ -1,0 +1,66 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        testInstrumentationRunner "androidx.item_folder.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':domain')
+
+    implementation 'com.google.firebase:firebase-database:19.5.1'
+
+    def appDependencies = rootProject.ext.appDependencies
+
+    //Firebase
+    implementation appDependencies.firebaseCore
+    implementation appDependencies.firebaseDatabase
+    implementation appDependencies.firebaseStorage
+    implementation appDependencies.firebaseAuth
+    implementation appDependencies.firebaseUI
+    implementation appDependencies.firebaseBom
+
+    //network
+    implementation appDependencies.retrofit
+    implementation appDependencies.retrofitGsonConverter
+    implementation appDependencies.okhttpLogging
+
+    //Room
+    api appDependencies.room
+    api appDependencies.roomKTX
+    kapt appDependencies.roomCompiler
+    api appDependencies.roomCommon
+
+    // parser
+    implementation appDependencies.gson
+
+    // dependency injection
+    implementation appDependencies.hilt
+    kapt appDependencies.hiltCompiler
+    // logging
+    implementation appDependencies.timber
+
+    //coroutines
+    api appDependencies.coroutinesCore
+    api appDependencies.coroutinesAndroid
+}

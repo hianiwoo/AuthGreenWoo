@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.greenwoo.presentation.host.add.course.CourseViewData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_dark"
+        android:padding="@dimen/spaceNormal">
+
+        <ImageView
+            android:id="@+id/btnClose"
+            android:layout_width="@dimen/spaceNormal"
+            android:layout_height="@dimen/spaceNormal"
+            android:onClick="@{ v -> model.onBackClicked.invoke()}"
+            android:src="@drawable/ic_left_arrow_blue"
+            app:layout_constraintBottom_toBottomOf="@id/tvCreateModule"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvCreateModule" />
+
+        <TextView
+            android:id="@+id/tvCreateModule"
+            style="@style/TextViewTitleLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_alternates_extra_bold"
+            android:text="@string/create_course"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tInputName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaceNormalSemi"
+            android:theme="@style/TextInputLayoutDefault"
+            app:layout_constraintTop_toBottomOf="@id/btnClose">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/EditTextDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:imeOptions="actionNext"
+                android:maxLength="25"
+                android:text="@={model.name}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tInputDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaceSmall"
+            android:theme="@style/TextInputLayoutDefault"
+            app:layout_constraintTop_toBottomOf="@id/tInputName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/EditTextDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/description"
+                android:imeOptions="actionDone"
+                android:maxLength="30"
+                android:text="@={model.description}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnCreate"
+            style="@style/TextViewTitleLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaceLarge"
+            android:alpha="@{model.enableCreateCourse ? 1f : 0.5f}"
+            android:background="@drawable/bg_btn"
+            android:enabled="@{model.enableCreateCourse}"
+            android:fontFamily="@font/montserrat_alternates_extra_bold"
+            android:onClick="@{ v -> model.onClickCreateCourse.invoke()}"
+            android:padding="@dimen/spaceSmallSemi"
+            android:text="@string/create"
+            android:textAllCaps="true"
+            app:layout_constraintTop_toBottomOf="@id/tInputDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

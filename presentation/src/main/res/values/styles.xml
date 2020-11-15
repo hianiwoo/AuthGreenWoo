@@ -1,0 +1,42 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="TextViewTitleLight">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/normalText</item>
+    </style>
+
+    <style name="TextViewDesc">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/smallTextDesc</item>
+    </style>
+
+    <style name="TextViewDescBlue">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">@dimen/smallTextDesc</item>
+    </style>
+
+    <style name="EditTextDefault">
+        <item name="android:textColorHint">@color/bg_light</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/normalText</item>
+        <item name="fontFamily">@font/montserrat_alternates_regular</item>
+        <item name="android:padding">@dimen/spaceSmallSemi</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:background">@drawable/bg_outline</item>
+    </style>
+
+    <style name="TextInputLayoutDefault">
+        <item name="hintAnimationEnabled">false</item>
+        <item name="hintEnabled">false</item>
+        <item name="fontFamily">@font/montserrat_alternates_regular</item>
+        <item name="boxStrokeWidth">1dp</item>
+    </style>
+
+</resources>

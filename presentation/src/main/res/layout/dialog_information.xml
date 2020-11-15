@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_dark"
+        android:paddingStart="@dimen/spaceNormal"
+        android:paddingTop="@dimen/spaceLarge"
+        android:paddingEnd="@dimen/spaceNormal"
+        android:paddingBottom="@dimen/spaceLarge">
+
+        <TextView
+            android:id="@+id/tvCheckMail"
+            style="@style/TextViewTitleLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_alternates_extra_bold"
+            android:gravity="center"
+            android:text="@string/сheck_email"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMailAdress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaceNormal"
+            android:fontFamily="@font/montserrat_alternates_medium"
+            android:gravity="center"
+            style="@style/TextViewTitleLight"
+            android:text="@string/sent_letter_address"
+            app:layout_constraintTop_toBottomOf="@id/tvCheckMail" />
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaceNormalSemi"
+            android:background="@drawable/bg_btn"
+            android:fontFamily="@font/montserrat_alternates_extra_bold"
+            android:gravity="center"
+            android:padding="@dimen/spaceSmall"
+            android:text="@string/understand"
+            style="@style/TextViewTitleLight"
+            app:layout_constraintTop_toBottomOf="@id/tvMailAdress" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

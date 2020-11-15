@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.greenwoo.presentation.detail.course.CourseViewData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_dark"
+        android:padding="@dimen/spaceNormal">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/spaceNormal"
+            android:layout_height="@dimen/spaceNormal"
+            android:onClick="@{ v -> model.onBackClicked.invoke()}"
+            android:src="@drawable/ic_left_arrow_blue"
+            app:layout_constraintBottom_toBottomOf="@id/tvCourse"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvCourse" />
+
+        <TextView
+            android:id="@+id/tvCourse"
+            style="@style/TextViewTitleLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_alternates_extra_bold"
+            android:gravity="center"
+            android:text="@string/course"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextViewTitleLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaceNormal"
+            android:fontFamily="@font/montserrat_alternates_medium"
+            android:text="@{model.name}"
+            app:layout_constraintTop_toBottomOf="@id/tvCourse"
+            tools:text="@string/name" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaceSmall"
+            android:fontFamily="@font/montserrat_alternates_regular"
+            android:text="@{model.description}"
+            android:textColor="@color/bg_light"
+            android:textSize="@dimen/smallTextDesc"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
+            tools:text="@string/description" />
+
+        <TextView
+            android:id="@+id/tvNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaceSmall"
+            android:fontFamily="@font/montserrat_alternates_extra_bold"
+            android:text='@{"10" + " "}'
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/tvTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spaceLess"
+            android:fontFamily="@font/montserrat_alternates_regular"
+            android:text='@{@string/modules_l + " " + "|"}'
+            android:textColor="@color/bg_light"
+            app:layout_constraintBottom_toBottomOf="@id/tvNumber"
+            app:layout_constraintStart_toEndOf="@id/tvNumber"
+            app:layout_constraintTop_toTopOf="@id/tvNumber"
+            tools:text="модулей" />
+
+        <ImageView
+            android:id="@+id/ivUser"
+            android:layout_width="@dimen/spaceNormalSemi"
+            android:layout_height="@dimen/spaceNormalSemi"
+            android:layout_marginStart="@dimen/spaceSmall"
+            android:scaleType="center"
+            android:src="@drawable/splash_logo_card_blue"
+            app:layout_constraintBottom_toBottomOf="@id/tvTerms"
+            app:layout_constraintStart_toEndOf="@id/tvTerms"
+            app:layout_constraintTop_toTopOf="@id/tvTerms" />
+
+        <TextView
+            android:id="@+id/tvNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spaceLess"
+            android:fontFamily="@font/montserrat_alternates_medium"
+            android:text="@{model.uid}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/smallTextDesc"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintStart_toEndOf="@id/ivUser"
+            app:layout_constraintTop_toTopOf="@id/ivUser"
+            tools:text="@string/nickname" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spaceLarge"
+            android:layout_marginTop="@dimen/spaceSmall"
+            android:clickable="false"
+            app:layout_constraintTop_toBottomOf="@id/tvNickname"
+            app:tabIndicatorColor="@color/blue"
+            app:tabIndicatorHeight="2dp"
+            app:tabMode="fixed"
+            app:tabRippleColor="@android:color/transparent"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/gray_light" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/bg_dark"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

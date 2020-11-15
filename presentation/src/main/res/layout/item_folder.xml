@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.greenwoo.domain.models.Folder" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="@dimen/spaceLess"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="@dimen/spaceLess"
+        android:background="@drawable/bg_card"
+        android:padding="@dimen/spaceNormal">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TextViewTitleLight"
+            android:fontFamily="@font/montserrat_alternates_extra_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{item.name}"
+            tools:text="@string/name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivUser"
+            android:layout_width="@dimen/spaceNormal"
+            android:layout_height="@dimen/spaceNormal"
+            android:layout_marginTop="@dimen/spaceLarge"
+            android:scaleType="center"
+            android:src="@drawable/splash_logo_card_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <TextView
+            style="@style/TextViewDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spaceLess"
+            android:text="@{item.uid}"
+            tools:text="@string/nickname"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintStart_toEndOf="@id/ivUser"
+            app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

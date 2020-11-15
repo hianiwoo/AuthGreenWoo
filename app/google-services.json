@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "381356780740",
+    "firebase_url": "https://green-woo.firebaseio.com",
+    "project_id": "green-woo",
+    "storage_bucket": "green-woo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381356780740:android:f7820000dcb624ef6f6d91",
+        "android_client_info": {
+          "package_name": "com.greenwoo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381356780740-icce71revk7lduk86td5f62jhr23p67h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp6rnb5HlHaOYcZrE9a0mhKy3XWN0Hg4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381356780740-icce71revk7lduk86td5f62jhr23p67h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

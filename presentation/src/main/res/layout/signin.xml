@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.greenwoo.presentation.auth.signin.SignInViewData" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_dark">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spaceNormal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tInputMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextInputLayoutDefault"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mail"
+                    android:imeOptions="actionNext"
+                    android:inputType="textWebEmailAddress"
+                    android:text="@={model.mail}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tInputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:theme="@style/TextInputLayoutDefault"
+                app:layout_constraintTop_toBottomOf="@id/tInputMail"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/bg_light">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
+                    android:text="@={model.password}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnSignIn"
+                style="@style/TextViewTitleLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmallSemi"
+                android:alpha="@{model.enableSignIn ? 1f : 0.5f}"
+                android:background="@drawable/bg_btn"
+                android:enabled="@{model.enableSignIn}"
+                android:fontFamily="@font/montserrat_alternates_extra_bold"
+                android:gravity="center"
+                android:onClick="@{ v -> model.onClickHost.invoke()}"
+                android:padding="@dimen/spaceSmallSemi"
+                android:text="@string/sign_in"
+                app:layout_constraintTop_toBottomOf="@id/tInputPassword" />
+
+            <TextView
+                android:id="@+id/tvForgotPassword"
+                style="@style/TextViewDescBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:gravity="center"
+                android:onClick="@{ v -> model.onClickForgotPassword.invoke()}"
+                android:text="@string/forgot_password"
+                app:layout_constraintTop_toBottomOf="@id/btnSignIn" />
+
+            <TextView
+                android:id="@+id/tvSignUp"
+                style="@style/TextViewDesc"
+                spannableColor="@{@color/blue}"
+                spannableStart="@{19}"
+                spannableText="@{@string/dont_have_account}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:gravity="center"
+                android:onClick="@{ v -> model.onClickSignUp.invoke()}"
+                app:layout_constraintTop_toBottomOf="@id/tvForgotPassword"
+                tools:text="@string/dont_have_account" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

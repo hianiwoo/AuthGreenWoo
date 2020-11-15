@@ -1,0 +1,99 @@
+ext {
+    kotlinVersion = '1.4.10'
+
+    // Android
+    minSdkVersion = 24
+    targetSdkVersion = 30
+    versionCode = 1
+    versionName = "0.0.1"
+    compileSdkVersion = 30
+    buildToolsVersion = "30.0.1"
+    testInstrumentationRunner = "android.support.item_folder.runner.AndroidJUnitRunner"
+
+    // Libraries
+    androidXCore = '1.3.2'
+    androidLifecycle = '2.2.0'
+    workRuntimeKtxVersion = '2.3.4'
+    fragmentKtxVersion = '1.2.5'
+    retrofit2Version = '2.9.0'
+    javaxInjectVersion = '1'
+    okhttpLoggingVersion = '4.9.0'
+    daggerVersion = '2.28'
+    espressoVersion = '3.2.0'
+    roomVersion = '2.2.5'
+    junitVersion = '4.12'
+    gsonVersion = '2.8.6'
+    constraintLayoutVersion = '2.0.2'
+    multidexVersion = '2.0.0'
+    supportVersion = '1.2.0'
+    navigationVersion = '2.3.0'
+    coroutinesVersion = '1.3.3'
+    coilVersion = '0.11.0'
+    moshiVersion = '1.9.3'
+    hiltVersion = '2.29.1-alpha'
+    timberVersion = '4.7.1'
+    hiltViewModelVersion = '1.0.0-alpha02'
+    graphview = '4.2.2'
+    glideVersion = '4.11.0'
+    firebaseBom = '26.0.0'
+    firebaseDatabase = '19.5.1'
+    firebaseStorage = '19.2.0'
+    firebaseCore = '17.5.1'
+    firebase = '20.0.0'
+    firebaseUI = '6.3.0'
+
+
+    // Dependencies
+    appDependencies = [
+            kotlin                   : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            appCompat                : "androidx.appcompat:appcompat:$supportVersion",
+            androidXcore             : "androidx.core:core-ktx:$androidXCore",
+            androidLifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidLifecycle",
+            androidLifecycleLiveData : "androidx.lifecycle:lifecycle-livedata-ktx:$androidLifecycle",
+            androidLifecycleExt      : "androidx.lifecycle:lifecycle-extensions:$androidLifecycle",
+            androidLifecycleJava8    : "androidx.lifecycle:lifecycle-common-java8:$androidLifecycle",
+            workRuntimeKtx           : "androidx.work:work-runtime-ktx:$workRuntimeKtxVersion",
+            fragmentKtx              : "androidx.fragment:fragment-ktx:$fragmentKtxVersion",
+            material                 : "com.google.android.material:material:$supportVersion",
+            supportv4                : "androidx.legacy:legacy-support-v4:$supportVersion",
+            recyclerview             : "androidx.recyclerview:recyclerview:$supportVersion",
+            cardview                 : "androidx.cardview:cardview:$supportVersion",
+            annotation               : "androidx.annotation:annotation:$supportVersion",
+            hilt                     : "com.google.dagger:hilt-android:$hiltVersion",
+            hiltCompiler             : "com.google.dagger:hilt-android-compiler:$hiltVersion",
+            hiltViewModel            : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltViewModelVersion",
+            hiltViewModelCompiler    : "androidx.hilt:hilt-compiler:$hiltViewModelVersion",
+            retrofit                 : "com.squareup.retrofit2:retrofit:$retrofit2Version",
+            retrofitGsonConverter    : "com.squareup.retrofit2:converter-gson:$retrofit2Version",
+            retrofitMoshiConverter   : "com.squareup.retrofit2:converter-moshi:$retrofit2Version",
+            okhttpLogging            : "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingVersion",
+            room                     : "androidx.room:room-runtime:$roomVersion",
+            roomKTX                  : "androidx.room:room-ktx:$roomVersion",
+            roomCompiler             : "androidx.room:room-compiler:$roomVersion",
+            roomCommon               : "androidx.room:room-common:$roomVersion",
+            gson                     : "com.google.code.gson:gson:$gsonVersion",
+            constraintLayout         : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            multidex                 : "androidx.multidex:multidex:$multidexVersion",
+            navigationFragment       : "android.arch.navigation:navigation-fragment-ktx:$navigationVersion",
+            navigationUi             : "android.arch.navigation:navigation-ui-ktx:$navigationVersion",
+            coroutinesCore           : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
+            coroutinesAndroid        : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
+            coil                     : "io.coil-kt:coil:$coilVersion",
+            timber                   : "com.jakewharton.timber:timber:$timberVersion",
+            moshiKotlin              : "com.squareup.moshi:moshi-kotlin:$moshiVersion",
+            graphview                : "com.jjoe64:graphview:$graphview",
+            glide                    : "com.github.bumptech.glide:glide:$glideVersion",
+            glideCompiler            : "com.github.bumptech.glide:compiler:$glideVersion",
+            firebaseBom              : "com.google.firebase:firebase-bom:$firebaseBom",
+            firebaseCore             : "com.google.firebase:firebase-core:$firebaseCore",
+            firebaseDatabase         : "com.google.firebase:firebase-database:$firebaseDatabase",
+            firebaseStorage          : "com.google.firebase:firebase-storage:$firebaseStorage",
+            firebaseAuth             : "com.google.firebase:firebase-auth:$firebase",
+            firebaseUI               : "com.firebaseui:firebase-ui-database:$firebaseUI"
+    ]
+
+    appTestDependencies = [
+            junit       : "junit:junit:$junitVersion",
+            espressoCore: "androidx.item_folder.espresso:espresso-core:$espressoVersion",
+    ]
+}

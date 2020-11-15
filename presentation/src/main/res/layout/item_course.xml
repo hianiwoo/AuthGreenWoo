@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.greenwoo.domain.models.Course" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="@dimen/spaceLess"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="@dimen/spaceLess"
+        android:background="@drawable/bg_card"
+        android:padding="@dimen/spaceNormal">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TextViewTitleLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_alternates_extra_bold"
+            android:text="@{item.name}"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

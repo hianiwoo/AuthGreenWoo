@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.greenwoo.presentation.detail.folder.FolderViewData" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_dark">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/spaceNormal"
+                android:layout_height="@dimen/spaceNormal"
+                android:layout_marginStart="@dimen/spaceNormal"
+                android:onClick="@{ v -> model.onBackClicked.invoke()}"
+                android:src="@drawable/ic_left_arrow_blue"
+                app:layout_constraintBottom_toBottomOf="@id/tvFolder"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvFolder" />
+
+            <TextView
+                android:id="@+id/tvFolder"
+                android:layout_width="match_parent"
+                style="@style/TextViewTitleLight"
+                android:fontFamily="@font/montserrat_alternates_extra_bold"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmallSemi"
+                android:gravity="center"
+                android:text="@string/folder"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceNormal"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:text="@{model.name}"
+                tools:text="@string/name"
+                android:layout_marginStart="@dimen/spaceNormal"
+                style="@style/TextViewTitleLight"
+                app:layout_constraintTop_toBottomOf="@id/tvFolder" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:fontFamily="@font/montserrat_alternates_regular"
+                android:text="@{model.description}"
+                android:layout_marginStart="@dimen/spaceNormal"
+                android:textColor="@color/bg_light"
+                tools:text="@string/description"
+                android:textSize="@dimen/smallTextDesc"
+                app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+            <TextView
+                android:id="@+id/tvNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:fontFamily="@font/montserrat_alternates_extra_bold"
+                android:text='@{"10" + " "}'
+                tools:text="10"
+                android:layout_marginStart="@dimen/spaceNormal"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+
+            <TextView
+                android:id="@+id/tvTerms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceLess"
+                android:fontFamily="@font/montserrat_alternates_regular"
+                android:text='@{@string/modules_l + " " + "|"}'
+                tools:text="модулей"
+                android:textColor="@color/bg_light"
+                app:layout_constraintBottom_toBottomOf="@id/tvNumber"
+                app:layout_constraintStart_toEndOf="@id/tvNumber"
+                app:layout_constraintTop_toTopOf="@id/tvNumber" />
+
+            <ImageView
+                android:id="@+id/ivUser"
+                android:layout_width="@dimen/spaceNormalSemi"
+                android:layout_height="@dimen/spaceNormalSemi"
+                android:layout_marginStart="@dimen/spaceSmall"
+                android:scaleType="center"
+                android:src="@drawable/splash_logo_card_blue"
+                app:layout_constraintBottom_toBottomOf="@id/tvTerms"
+                app:layout_constraintStart_toEndOf="@id/tvTerms"
+                app:layout_constraintTop_toTopOf="@id/tvTerms" />
+
+            <TextView
+                android:id="@+id/tvNickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceLess"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:text="@{model.uid}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/smallTextDesc"
+                tools:text="@string/nickname"
+                app:layout_constraintBottom_toBottomOf="@id/ivUser"
+                app:layout_constraintStart_toEndOf="@id/ivUser"
+                app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="@dimen/spaceNormal"
+                android:background="@color/gray_color"
+                app:layout_constraintTop_toBottomOf="@id/ivUser" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvModule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceSmall"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:layout_marginEnd="@dimen/spaceSmall"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

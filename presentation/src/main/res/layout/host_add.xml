@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.greenwoo.presentation.host.add.AddViewData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/bg_dark">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clModule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spaceSmall"
+            android:onClick="@{ v -> model.onCreateModule.invoke()}"
+            app:layout_constraintBottom_toTopOf="@id/clFolder"
+            app:layout_constraintStart_toStartOf="@id/clFolder">
+
+            <ImageView
+                android:id="@+id/ivModule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white"
+                android:padding="@dimen/spaceNormal"
+                android:src="@drawable/ic_module"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvModule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceSmallSemi"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:text="@string/create_module"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normalSemiText"
+                app:layout_constraintBottom_toBottomOf="@id/ivModule"
+                app:layout_constraintStart_toEndOf="@id/ivModule"
+                app:layout_constraintTop_toTopOf="@id/ivModule" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clFolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{ v -> model.onCreateFolder.invoke()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivFolder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white"
+                android:padding="@dimen/spaceNormal"
+                android:src="@drawable/ic_folder"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvFolder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceSmallSemi"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:text="@string/create_folder"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normalSemiText"
+                app:layout_constraintBottom_toBottomOf="@id/ivFolder"
+                app:layout_constraintStart_toEndOf="@id/ivFolder"
+                app:layout_constraintTop_toTopOf="@id/ivFolder" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaceSmall"
+            android:onClick="@{ v -> model.onCreateCourse.invoke()}"
+            app:layout_constraintStart_toStartOf="@id/clFolder"
+            app:layout_constraintTop_toBottomOf="@id/clFolder">
+
+            <ImageView
+                android:id="@+id/ivCourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white"
+                android:padding="@dimen/spaceNormal"
+                android:src="@drawable/ic_course"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spaceSmallSemi"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:text="@string/create_course"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normalSemiText"
+                app:layout_constraintBottom_toBottomOf="@id/ivCourse"
+                app:layout_constraintStart_toEndOf="@id/ivCourse"
+                app:layout_constraintTop_toTopOf="@id/ivCourse" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

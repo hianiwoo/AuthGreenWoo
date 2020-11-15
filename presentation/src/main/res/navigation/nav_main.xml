@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/splash">
+
+    <fragment
+        android:id="@+id/splash"
+        android:name="com.greenwoo.presentation.splash.SplashFragment"
+        tools:layout="@layout/splash">
+
+        <action
+            android:id="@+id/action_splash_to_sign_in"
+            app:destination="@id/signIn" />
+        <action
+            android:id="@+id/action_splash_to_host"
+            app:destination="@id/host" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/signIn"
+        android:name="com.greenwoo.presentation.auth.signin.SignInFragment"
+        tools:layout="@layout/signin">
+
+        <action
+            android:id="@+id/action_sign_in_to_sign_up"
+            app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_sign_in_to_host"
+            app:destination="@id/host"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_sign_in_to_forgot_password"
+            app:destination="@id/forgotPassword" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.greenwoo.presentation.auth.signup.SignUpFragment"
+        tools:layout="@layout/signup">
+        <action
+            android:id="@+id/action_sign_up_to_host"
+            app:destination="@id/host"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_sign_up_to_sign_in"
+            app:destination="@id/signIn" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotPassword"
+        android:name="com.greenwoo.presentation.auth.forgot.password.PasswordFragment"
+        tools:layout="@layout/forgot_password">
+        <action
+            android:id="@+id/action_forgot_password_to_sign_in"
+            app:destination="@id/signIn" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/host"
+        android:name="com.greenwoo.presentation.host.HostFragment"
+        android:label="HostFragment" />
+
+    <fragment
+        android:id="@+id/addModule"
+        android:name="com.greenwoo.presentation.host.add.module.ModuleFragment"
+        tools:layout="@layout/add_module" />
+
+    <action
+        android:id="@+id/global_action_to_add_module"
+        app:destination="@id/addModule" />
+
+    <fragment
+        android:id="@+id/addFolder"
+        android:name="com.greenwoo.presentation.host.add.folder.FolderFragment"
+        tools:layout="@layout/add_folder" />
+
+    <action
+        android:id="@+id/global_action_to_add_folder"
+        app:destination="@id/addFolder" />
+
+    <fragment
+        android:id="@+id/addCourse"
+        android:name="com.greenwoo.presentation.host.add.course.CourseFragment"
+        tools:layout="@layout/add_module" />
+
+    <action
+        android:id="@+id/global_action_to_add_course"
+        app:destination="@id/addCourse" />
+
+    <fragment
+        android:id="@+id/detailUser"
+        android:name="com.greenwoo.presentation.detail.user.UserFragment"
+        tools:layout="@layout/detail_user">
+
+        <action
+            android:id="@+id/action_detail_friend_to_list_elements"
+            app:destination="@id/listElements" />
+
+    </fragment>
+
+    <action
+        android:id="@+id/global_action_to_detail_users"
+        app:destination="@id/detailUser" />
+
+    <action
+        android:id="@+id/global_action_to_list"
+        app:destination="@id/listElements" />
+
+    <fragment
+        android:id="@+id/listElements"
+        android:name="com.greenwoo.presentation.detail.list.elements.ElementsFragment"
+        tools:layout="@layout/list">
+
+        <argument
+            android:name="type"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_list_to_detail_module"
+            app:destination="@id/detailModule" />
+
+        <action
+            android:id="@+id/action_list_to_detail_folder"
+            app:destination="@id/detailFolder" />
+
+        <action
+            android:id="@+id/action_list_to_detail_course"
+            app:destination="@id/detailCourse" />
+
+        <action
+            android:id="@+id/action_list_to_detail_user"
+            app:destination="@id/detailUser" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailModule"
+        android:name="com.greenwoo.presentation.detail.module.ModuleFragment"
+        tools:layout="@layout/detail_module"/>
+
+    <action
+        android:id="@+id/global_action_to_detail_module"
+        app:destination="@id/detailModule" />
+
+    <fragment
+        android:id="@+id/detailFolder"
+        android:name="com.greenwoo.presentation.detail.folder.FolderFragment"
+        tools:layout="@layout/detail_folder"/>
+
+    <action
+        android:id="@+id/global_action_to_detail_folder"
+        app:destination="@id/detailFolder" />
+
+    <fragment
+        android:id="@+id/detailCourse"
+        android:name="com.greenwoo.presentation.detail.course.CourseFragment"
+        tools:layout="@layout/detail_course"/>
+
+    <action
+        android:id="@+id/global_action_to_detail_course"
+        app:destination="@id/detailCourse" />
+
+    <fragment
+        android:id="@+id/profileSetting"
+        android:name="com.greenwoo.presentation.host.profile.setting.SettingFragment"
+        tools:layout="@layout/profile_setting">
+        <action
+            android:id="@+id/action_profile_setting_to_sign_in"
+            app:destination="@id/signIn"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <action
+        android:id="@+id/global_action_to_profile_setting"
+        app:destination="@id/profileSetting" />
+
+    <fragment
+        android:id="@+id/dialogInformation"
+        android:name="com.greenwoo.presentation.auth.forgot.information.InformationDialog"
+        tools:layout="@layout/dialog_information" />
+
+    <fragment
+        android:id="@+id/searchUsers"
+        android:name="com.greenwoo.presentation.host.search.users.UsersFragment"
+        tools:layout="@layout/search_users">
+        <action
+            android:id="@+id/search_users_to_detail_user"
+            app:destination="@id/detailUser" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchModule"
+        android:name="com.greenwoo.presentation.host.search.modules.ModulesFragment"
+        tools:layout="@layout/search_module">
+        <action
+            android:id="@+id/search_modules_to_detail_module"
+            app:destination="@id/detailModule" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchCourse"
+        android:name="com.greenwoo.presentation.host.search.courses.CoursesFragment"
+        tools:layout="@layout/search_course">
+        <action
+            android:id="@+id/search_courses_to_detail_course"
+            app:destination="@id/detailCourse" />
+    </fragment>
+
+</navigation>

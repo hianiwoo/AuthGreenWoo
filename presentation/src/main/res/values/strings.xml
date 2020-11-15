@@ -1,0 +1,71 @@
+<resources>
+
+    <string name="app_name">GreenWoo</string>
+    <string name="green">Green</string>
+    <string name="woo">woo</string>
+    <string name="home">Главная</string>
+    <string name="search">Поиск</string>
+    <string name="add">Добавить</string>
+    <string name="profile">Профиль</string>
+
+    <string name="create_module">Создать модуль</string>
+    <string name="create_folder">Создать папку</string>
+    <string name="create_course">Создать курс</string>
+
+    <string name="save">Сохранить</string>
+    <string name="name">Название</string>
+    <string name="create">Создать</string>
+    <string name="done">Готово</string>
+    <string name="cancel">Отмена</string>
+    <string name="description">Описание (необязательно)</string>
+    <string name="see_all">Смотреть все</string>
+    <string name="see_friends">Смотреть всех</string>
+    <string name="modules">Модули</string>
+    <string name="courses">Курсы</string>
+    <string name="folders">Папки</string>
+    <string name="module">Модуль</string>
+    <string name="folder">Папка</string>
+    <string name="course">Курс</string>
+    <string name="general">Общие</string>
+    <string name="change_avatar">Изменить аватар</string>
+    <string name="modules_l">модулей</string>
+    <string name="password">Пароль</string>
+    <string name="sign_in">Вход</string>
+    <string name="mail">Адрес эл.почты</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="nickname">Псевдоним</string>
+    <string name="dont_have_account">У вас нет аккаута? Зарегистрируйтесь</string>
+    <string name="have_account">Уже есть аккаунт? Войти в систему</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="enter_email_address">Введите эл. адрес</string>
+    <string name="сheck_email">Проверьте свою электронную почту!</string>
+    <string name="understand">понятно</string>
+    <string name="terms">терминов</string>
+    <string name="cards">Карточки</string>
+    <string name="edit">Редактировать</string>
+    <string name="send">Отправить</string>
+
+    <string name="friends">Друзья</string>
+    <string name="participants">Участники</string>
+    <string name="users">Пользователи</string>
+    <string name="subscribed">Подписки</string>
+    <string name="subscribers">Подписчики</string>
+    <string name="subscriptions">подписок</string>
+    <string name="subscriber">подписчиков</string>
+    <string name="you_subscribed">Вы подписаны</string>
+    <string name="subscribe">Подписаться</string>
+    <string name="setting">Настройки</string>
+    <string name="exit">Выйти</string>
+
+    <string name="link_reset_password">Введите адрес эл. почты, чтобы получить ссылку для сброса пароля.</string>
+    <string name="sent_letter_address">Мы отправили письмо на вашу почту.Вы не получили его? Проверьте папку Спам и повторите попытку.</string>
+    <string name="unknow_error">Unknow error</string>
+    <string name="signin_error_incorrect_user_data">Введенный адрес электронной почты или пароль недействителен.</string>
+    <string name="auth_unknow_error">Auth unknow error</string>
+    <string name="signin_error_no_registered">С такой почтой нет зарегистрированного пользователя.</string>
+    <string name="signup_error_invalid_password">Пароль должен состоять не менее чем из 6 символов.</string>
+    <string name="setting_error_re_entry">Выполните заново вход в систему чтобы изменить данные.</string>
+    <string name="setting_error_busy_mail">Адрес электронной почты уже используется другой учетной записью.</string>
+    <string name="no_connected">No connected</string>
+
+</resources>

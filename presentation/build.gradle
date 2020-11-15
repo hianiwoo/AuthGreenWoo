@@ -1,0 +1,87 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+
+    implementation project(':domain')
+
+    implementation 'com.google.firebase:firebase-database:19.5.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    def appDependencies = rootProject.ext.appDependencies
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation appDependencies.navigationFragment
+    implementation appDependencies.navigationUi
+
+    implementation appDependencies.kotlin
+    implementation appDependencies.appCompat
+    implementation appDependencies.androidXcore
+    implementation appDependencies.constraintLayout
+    implementation appDependencies.fragmentKtx
+
+    //Firebase
+    implementation appDependencies.firebaseCore
+    implementation appDependencies.firebaseDatabase
+    implementation appDependencies.firebaseStorage
+    implementation appDependencies.firebaseAuth
+    implementation appDependencies.firebaseUI
+    implementation appDependencies.firebaseBom
+
+    //Glide
+    implementation appDependencies.glide
+    kapt appDependencies.glideCompiler
+
+    // dependency injection
+    api appDependencies.hilt
+    kapt appDependencies.hiltCompiler
+    api appDependencies.hiltViewModel
+    kapt appDependencies.hiltViewModelCompiler
+    implementation appDependencies.fragmentKtx
+
+    // logging
+    implementation appDependencies.timber
+
+    //graph view
+    implementation appDependencies.graphview
+}

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.greenwoo.presentation.R" />
+
+        <variable
+            name="model"
+            type="com.greenwoo.presentation.host.profile.setting.SettingViewData" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/spaceNormal"
+        android:background="@color/bg_dark">
+
+        <ImageView
+            android:id="@+id/btnClose"
+            android:layout_width="@dimen/spaceNormal"
+            android:layout_height="@dimen/spaceNormal"
+            android:onClick="@{ v -> model.onClickBack.invoke()}"
+            android:src="@drawable/ic_left_arrow_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnComplete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="@{model.enableComplete ? 1f : 0.5f}"
+            android:fontFamily="@font/montserrat_alternates_extra_bold"
+            android:onClick="@{ v -> model.onClickProfile.invoke()}"
+            android:text="@string/done"
+            android:textAllCaps="true"
+            style="@style/TextViewDescBlue"
+            app:layout_constraintBottom_toBottomOf="@id/btnClose"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnClose" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/spaceSmallSemi"
+            android:paddingBottom="@dimen/spaceLarge"
+            app:layout_constraintTop_toBottomOf="@id/btnClose">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminateTint="@color/blue"
+                    android:visibility="@{model.loading}"
+                    app:layout_constraintBottom_toBottomOf="@id/ivUser"
+                    app:layout_constraintEnd_toEndOf="@id/ivUser"
+                    app:layout_constraintStart_toStartOf="@id/ivUser"
+                    app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+                <TextView
+                    android:id="@+id/tvYourProfile"
+                    style="@style/TextViewTitleLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spaceNormal"
+                    android:layout_marginEnd="@dimen/spaceNormal"
+                    android:fontFamily="@font/montserrat_alternates_extra_bold"
+                    android:text="@string/profile"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivUser"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="@dimen/spaceSmall"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvYourProfile"
+                    app:placeholder="@{R.drawable.user}"
+                    app:url="@{model.url}" />
+
+                <TextView
+                    android:id="@+id/tvChangeAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceSmall"
+                    android:fontFamily="@font/montserrat_alternates_medium"
+                    android:gravity="center"
+                    android:text="@string/change_avatar"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/normalText"
+                    app:layout_constraintTop_toBottomOf="@id/ivUser" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tInputNickname"
+                    textRes="create_nickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceSmall"
+                    android:theme="@style/TextInputLayoutDefault"
+                    app:layout_constraintTop_toBottomOf="@id/tvChangeAvatar">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextDefault"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/nickname"
+                        android:imeOptions="actionNext"
+                        android:text="@={model.nickname}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tInputMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceSmall"
+                    android:theme="@style/TextInputLayoutDefault"
+                    app:layout_constraintTop_toBottomOf="@id/tInputNickname">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/EditTextDefault"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/mail"
+                        android:imeOptions="actionDone"
+                        android:inputType="textEmailAddress"
+                        android:text="@={model.mail}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnExit"
+                    style="@style/TextViewTitleLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceLarge"
+                    android:background="@drawable/bg_btn"
+                    android:fontFamily="@font/montserrat_alternates_extra_bold"
+                    android:onClick="@{ v -> model.onClickSignOut.invoke()}"
+                    android:padding="@dimen/spaceSmallSemi"
+                    android:text="@string/exit"
+                    app:layout_constraintTop_toBottomOf="@id/tInputMail" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
