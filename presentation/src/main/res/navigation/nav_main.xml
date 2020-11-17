@@ -12,10 +12,14 @@
 
         <action
             android:id="@+id/action_splash_to_sign_in"
-            app:destination="@id/signIn" />
+            app:destination="@id/signIn"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true"  />
         <action
             android:id="@+id/action_splash_to_host"
-            app:destination="@id/host" />
+            app:destination="@id/host"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true" />
 
     </fragment>
 

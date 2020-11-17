@@ -94,6 +94,7 @@ inline fun <reified T : Any> DatabaseReference.toFlow() = flow {
     val value = suspendCancellableCoroutine<T> { cont ->
         addValueEventListener(object : ValueEventListener {
             override fun onDataChange(data: DataSnapshot) {
+                if(!cont.isActive) return
                 try {
                     cont.resume(data.getValue(object : GenericTypeIndicator<T>() {})!!)
                 } catch (e: Throwable) {

@@ -13,28 +13,11 @@ import kotlinx.coroutines.flow.mapLatest
 import timber.log.Timber
 
 class MainViewModel @ViewModelInject constructor(
-    private val connectInteractor: ConnectInteractor,
-    private val errorHandler: ErrorHandler
 ) : BaseViewModel<MainViewData>() {
 
     override val viewData by lazy { MainViewData() }
 
-    init {
-        connect()
-    }
-
-    sealed class NavigationTarget {
-        class ShowMessage(val message: Int) : NavigationTarget()
-    }
-
-    private fun connect() {
-        connectInteractor.execute()
-            .mapLatest {
-                if (!it) navigation.postEvent(NavigationTarget.ShowMessage(R.string.no_connected))
-            }
-            .catch { Timber.e(it) }
-            .launch()
-    }
+    sealed class NavigationTarget
 
     val navigation = MutableLiveData<Event<NavigationTarget>>()
 }
